@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistem Pendaftaran</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  .form-container {
+    max-width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+  }
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+  }
+  input[type="text"],
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  input[type="reset"] {
+    background-color: #FF033E;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  input[type="reset"]:hover {
+    background-color: #d80031;
+}
+</style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Selawat Perdana test</h2>
+	<h3>Sila isi maklumat dengan betul</h3>
+    <form id="myForm" action="https://script.google.com/macros/s/AKfycby5v18RjF5s2crwCWGBrFmSJKqhLwEuIP23vvGiRKmGebjZUt1l5Z0fBjm3mQTWlrqpfg/exec" method="post" onsubmit="submitForm(event)">
+      <label for="nama_penuh">Nama Penuh:</label>
+      <input type="text" id="nama_penuh" name="nama_penuh" oninput="this.value = this.value.toUpperCase()" required>
+
+      <label for="no_kad_pengenalan">Nombor Kad Pengenalan:</label>
+      <input type="text" id="no_kad_pengenalan" name="no_kad_pengenalan" pattern="[0-9]*" title="Please enter numeric characters only" required>
+
+      <label for="no_telefon">Nombor Telefon Bimbit:</label>
+      <input type="text" id="no_telefon" name="no_telefon" pattern="[0-9]*" title="Please enter numeric characters only" required>
+
+      <label for="cawangan">Cawangan:</label>
+      <select id="cawangan" name="cawangan" onchange="toggleOptions(this.value)">
+		<option value="" selected disabled>Pilih Cawangan</option>
+        <option value="kementerian">Kementerian</option>
+        <option value="negeri">Negeri</option>
+      </select>
+
+      <div id="optionsKementerian" style="display:none;">
+        <label for="option_kementerian">Pilihan Kementerian:</label>
+        <select id="option_kementerian" name="option_kementerian">
+			<option value="" selected disabled>Pilih Kementerian</option>
+          <option value="Jabatan Perdana Menteri">Jabatan Perdana Menteri</option>
+          <option value="Kementerian Pertahanan">Kementerian Pertahanan</option>
+          <option value="Kementerian Dalam Negeri">Kementerian Dalam Negeri</option>
+        </select>
+      </div>
+
+      <div id="optionsNegeri" style="display:none;">
+        <label for="option_negeri">Pilihan Negeri:</label>
+        <select id="option_negeri" name="option_negeri">
+			<option value="" selected disabled>Pilih Negeri</option>
+          <option value="Sabah">Sabah</option>
+          <option value="Selangor">Selangor</option>
+          <option value="Kedah">Kedah</option>
+        </select>
+      </div>
+
+      <input type="submit" value="Submit">
+      <input type="reset" value="Reset" onclick="location.reload();">
+    </form>
+  </div>
+  <div class="details-container" id="detailsContainer" style="display:none;">
+    <h3>Your Submitted Details</h3>
+    <ul class="details-list" id="detailsList">
+      <!-- Details will be added dynamically here -->
+    </ul>
+  </div>
+
+  <script>
+    function toggleOptions(value) {
+      var optionsKementerian = document.getElementById("optionsKementerian");
+      var optionsNegeri = document.getElementById("optionsNegeri");
+
+      if (value === "kementerian") {
+        optionsKementerian.style.display = "block";
+        optionsNegeri.style.display = "none";
+      } else if (value === "negeri") {
+        optionsKementerian.style.display = "none";
+        optionsNegeri.style.display = "block";
+      }
+    }
+
+    function submitForm(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      var form = document.getElementById("myForm");
+      var formData = new FormData(form);
+
+      fetch(form.action, {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.text())
+      .then(data => {
+        alert(data); // Display success message
+
+        // Redirect to details page with query parameters
+        var queryString = createQueryString(formData);
+        window.location.href = "details.html?" + queryString;
+
+        form.reset(); // Reset the form after successful submission
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert("Failed to submit form. Please try again later.");
+      });
+    }
+
+    function createQueryString(formData) {
+      return new URLSearchParams(formData).toString();
+    }
+  </script>
+</body>
+</html>
