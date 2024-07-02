@@ -66,17 +66,17 @@
 </head>
 <body>
   <div class="form-container">
-    <h2>Selawat Perdana test</h2>
+    <h2>Pendaftaran (TEST)</h2>
 	<h3>Sila isi maklumat dengan betul</h3>
     <form id="myForm" action="https://script.google.com/macros/s/AKfycby5v18RjF5s2crwCWGBrFmSJKqhLwEuIP23vvGiRKmGebjZUt1l5Z0fBjm3mQTWlrqpfg/exec" method="post" onsubmit="submitForm(event)">
       <label for="nama_penuh">Nama Penuh:</label>
       <input type="text" id="nama_penuh" name="nama_penuh" oninput="this.value = this.value.toUpperCase()" required>
 
       <label for="no_kad_pengenalan">Nombor Kad Pengenalan:</label>
-      <input type="text" id="no_kad_pengenalan" name="no_kad_pengenalan" pattern="[0-9]*" title="Please enter numeric characters only" required>
+      <input type="text" id="no_kad_pengenalan" name="no_kad_pengenalan" pattern="[0-9]*" title="Please enter numeric characters only" maxlength="12" required>
 
       <label for="no_telefon">Nombor Telefon Bimbit:</label>
-      <input type="text" id="no_telefon" name="no_telefon" pattern="[0-9]*" title="Please enter numeric characters only" required>
+      <input type="text" id="no_telefon" name="no_telefon" pattern="[0-9]*" title="Please enter numeric characters only" maxlength="12" required>
 
       <label for="cawangan">Cawangan:</label>
       <select id="cawangan" name="cawangan" onchange="toggleOptions(this.value)">
