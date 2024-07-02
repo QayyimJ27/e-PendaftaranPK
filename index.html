@@ -68,55 +68,83 @@
   <div class="form-container">
     <h2>Pendaftaran (TEST)</h2>
 	<h3>Sila isi maklumat dengan betul</h3>
-    <form id="myForm" action="https://script.google.com/macros/s/AKfycby5v18RjF5s2crwCWGBrFmSJKqhLwEuIP23vvGiRKmGebjZUt1l5Z0fBjm3mQTWlrqpfg/exec" method="post" onsubmit="submitForm(event)">
-      <label for="nama_penuh">Nama Penuh:</label>
-      <input type="text" id="nama_penuh" name="nama_penuh" oninput="this.value = this.value.toUpperCase()" required>
+	<form id="myForm" action="https://script.google.com/macros/s/AKfycby5v18RjF5s2crwCWGBrFmSJKqhLwEuIP23vvGiRKmGebjZUt1l5Z0fBjm3mQTWlrqpfg/exec" method="post" onsubmit="submitForm(event)">
+  <label for="nama_penuh">Nama Penuh:</label>
+  <input type="text" id="nama_penuh" name="nama_penuh" oninput="this.value = this.value.toUpperCase()" required>
 
-      <label for="no_kad_pengenalan">Nombor Kad Pengenalan:</label>
-      <input type="text" id="no_kad_pengenalan" name="no_kad_pengenalan" pattern="[0-9]*" title="Please enter numeric characters only" maxlength="12" required>
+  <label for="no_kad_pengenalan">Nombor Kad Pengenalan:</label>
+  <input type="text" id="no_kad_pengenalan" name="no_kad_pengenalan" pattern="[0-9]*" title="Please enter numeric characters only" maxlength="12" required>
 
-      <label for="no_telefon">Nombor Telefon Bimbit:</label>
-      <input type="text" id="no_telefon" name="no_telefon" pattern="[0-9]*" title="Please enter numeric characters only" maxlength="12" required>
+  <label for="no_telefon">Nombor Telefon Bimbit:</label>
+  <input type="text" id="no_telefon" name="no_telefon" pattern="[0-9]*" title="Please enter numeric characters only" maxlength="12" required>
 
-      <label for="cawangan">Cawangan:</label>
-      <select id="cawangan" name="cawangan" onchange="toggleOptions(this.value)">
-		<option value="" selected disabled>Pilih Cawangan</option>
-        <option value="kementerian">Kementerian</option>
-        <option value="negeri">Negeri</option>
-      </select>
+  <label for="cawangan">Cawangan:</label>
+  <select id="cawangan" name="cawangan" onchange="toggleOptions(this.value)" required>
+    <option value="" selected disabled>Pilih Cawangan</option>
+    <option value="kementerian">Kementerian</option>
+    <option value="negeri">Negeri</option>
+  </select>
 
-      <div id="optionsKementerian" style="display:none;">
-        <label for="option_kementerian">Pilihan Kementerian:</label>
-        <select id="option_kementerian" name="option_kementerian">
-			<option value="" selected disabled>Pilih Kementerian</option>
-          <option value="Jabatan Perdana Menteri">Jabatan Perdana Menteri</option>
-          <option value="Kementerian Pertahanan">Kementerian Pertahanan</option>
-          <option value="Kementerian Dalam Negeri">Kementerian Dalam Negeri</option>
-        </select>
-      </div>
-
-      <div id="optionsNegeri" style="display:none;">
-        <label for="option_negeri">Pilihan Negeri:</label>
-        <select id="option_negeri" name="option_negeri">
-			<option value="" selected disabled>Pilih Negeri</option>
-          <option value="Sabah">Sabah</option>
-          <option value="Selangor">Selangor</option>
-          <option value="Kedah">Kedah</option>
-        </select>
-      </div>
-
-      <input type="submit" value="Submit">
-      <input type="reset" value="Reset" onclick="location.reload();">
-    </form>
+  <div id="optionsKementerian" style="display:none;">
+    <label for="option_kementerian">Pilihan Kementerian:</label>
+    <select id="option_kementerian" name="option_kementerian">
+      <option value="" selected disabled>Pilih Kementerian</option>
+      <option value="JABATAN PERDANA MENTERI (JPM)">JABATAN PERDANA MENTERI (JPM)</option>
+      <option value="KEMENTERIAN KEWANGAN (MOF)">KEMENTERIAN KEWANGAN (MOF)</option>
+      <option value="KEMENTERIAN KESIHATAN (KKM)">KEMENTERIAN KESIHATAN (KKM)</option>
+	  <option value="KEMENTERIAN PERTANIAN DAN KETERJAMINAN MAKANAN (KPKM">)KEMENTERIAN PERTANIAN DAN KETERJAMINAN MAKANAN (KPKM)</option>
+	  <option value="KEMENTERIAN SAINS, TEKNOLOGI DAN INOVASI (MOSTI)">)KEMENTERIAN SAINS, TEKNOLOGI DAN INOVASI (MOSTI)</option>
+	  <option value="KEMENTERIAN KERJA RAYA (KKR)">KEMENTERIAN KERJA RAYA (KKR)</option>
+	  <option value="KEMENTERIAN PERTAHANAN (MINDEF)">KEMENTERIAN PERTAHANAN (MINDEF)</option>
+	  <option value="KEMENTERIAN PEMBANGUNAN USAHAWAN DAN KOPERASI (KUSKOP)">KEMENTERIAN PEMBANGUNAN USAHAWAN DAN KOPERASI (KUSKOP)</option>
+	  <option value="KEMENTERIAN PERPADUAN NEGARA (KPN)">KEMENTERIAN PERPADUAN NEGARA (KPN)</option>
+	  <option value="KEMENTERIAN KEMAJUAN DESA DAN WILAYAH (KKDW)">KEMENTERIAN KEMAJUAN DESA DAN WILAYAH (KKDW)</option>
+	  <option value="KEMENTERIAN LUAR NEGERI (KLN)">KEMENTERIAN LUAR NEGERI (KLN)</option>
+	  <option value="KEMENTERIAN PEMBANGUNAN WANITA, KELUARGA DAN MASYARAKAT (KPWKM)">KEMENTERIAN PEMBANGUNAN WANITA, KELUARGA DAN MASYARAKAT (KPWKM)</option>
+	  <option value="KEMENTERIAN DALAM NEGERI (KDN)">KEMENTERIAN DALAM NEGERI (KDN)</option>
+	  <option value="KEMENTERIAN EKONOMI (KE)">KEMENTERIAN EKONOMI (KE)</option>
+	  <option value="KEMENTERIAN PERUMAHAN DAN KERAJAAN TEMPATAN (KPKT)">KEMENTERIAN PERUMAHAN DAN KERAJAAN TEMPATAN (KPKT)</option>
+	  <option value="KEMENTERIAN PELABURAN, PERDAGANGAN DAN INDUSTRI (MITI)">KEMENTERIAN PELABURAN, PERDAGANGAN DAN INDUSTRI (MITI)</option>
+	  <option value="KEMENTERIAN PENGANGKUTAN (MOT)">KEMENTERIAN PENGANGKUTAN (MOT)</option>
+	  <option value="KEMENTERIAN PERDAGANGAN DALAM NEGERI DAN KOS SARA HIDUP (KPDN)">KEMENTERIAN PERDAGANGAN DALAM NEGERI DAN KOS SARA HIDUP (KPDN)</option>
+	  <option value="KEMENTERIAN PENDIDIKAN (KPM)">KEMENTERIAN PENDIDIKAN (KPM)</option>
+	  <option value="KEMENTERIAN BELIA DAN SUKAN (KBS)">KEMENTERIAN BELIA DAN SUKAN (KBS)</option>
+	  <option value="KEMENTERIAN KOMUNIKASI (KK)">KEMENTERIAN KOMUNIKASI (KK)</option>
+	  <option value="KEMENTERIAN PERLADANGAN DAN KOMODITI (KPK)">KEMENTERIAN PERLADANGAN DAN KOMODITI (KPK)</option>
+	  <option value="KEMENTERIAN PELANCONGAN, SENI DAN BUDAYA (MOTAC)">KEMENTERIAN PELANCONGAN, SENI DAN BUDAYA (MOTAC)</option>
+	  <option value="KEMENTERIAN SUMBER ASLI DAN KELESTARIAN ALAM (NRES)">KEMENTERIAN SUMBER ASLI DAN KELESTARIAN ALAM (NRES)</option>
+	  <option value="KEMENTERIAN PENDIDIKAN TINGGI (KPT)">KEMENTERIAN PENDIDIKAN TINGGI (KPT)</option>
+	  <option value="KEMENTERIAN SUMBER MANUSIA (KESUMA)">KEMENTERIAN SUMBER MANUSIA (KESUMA)</option>
+	  <option value="KEMENTERIAN PERALIHAN TENAGA DAN TRANSFORMASI (PETRA)">KEMENTERIAN PERALIHAN TENAGA DAN TRANSFORMASI (PETRA)</option>
+	  	  
+    </select>
   </div>
-  <div class="details-container" id="detailsContainer" style="display:none;">
-    <h3>Your Submitted Details</h3>
-    <ul class="details-list" id="detailsList">
-      <!-- Details will be added dynamically here -->
-    </ul>
+
+  <div id="optionsNegeri" style="display:none;">
+    <label for="option_negeri">Pilihan Negeri:</label>
+    <select id="option_negeri" name="option_negeri">
+      <option value="" selected disabled>Pilih Negeri</option>
+      <option value="SABAH">SABAH</option>
+      <option value="JOHOR">JOHOR</option>
+      <option value="KELANTAN">KELANTAN</option>
+	  <option value="TERENGGANU">TERENGGANU</option>
+	  <option value="SELANGOR">SELANGOR</option>
+	  <option value="PULAU PINANG">PULAU PINANG</option>
+	  <option value="MELAKA">MELAKA</option>
+	  <option value="PERAK">PERAK</option>
+	  <option value="PAHANG">PAHANG</option>
+	  <option value="NEGERI SEMBILAN">NEGERI SEMBILAN</option>
+	  <option value="PERLIS">PERLIS</option>
+	  <option value="KEDAH">KEDAH</option>
+	    
+    </select>
   </div>
 
-  <script>
+  <input type="submit" value="Submit">
+  <input type="reset" value="Reset" onclick="location.reload();">
+</form>
+
+<script>
     function toggleOptions(value) {
       var optionsKementerian = document.getElementById("optionsKementerian");
       var optionsNegeri = document.getElementById("optionsNegeri");
@@ -124,9 +152,18 @@
       if (value === "kementerian") {
         optionsKementerian.style.display = "block";
         optionsNegeri.style.display = "none";
+        document.getElementById("option_kementerian").required = true;
+        document.getElementById("option_negeri").required = false;
       } else if (value === "negeri") {
         optionsKementerian.style.display = "none";
         optionsNegeri.style.display = "block";
+        document.getElementById("option_kementerian").required = false;
+        document.getElementById("option_negeri").required = true;
+      } else {
+        optionsKementerian.style.display = "none";
+        optionsNegeri.style.display = "none";
+        document.getElementById("option_kementerian").required = false;
+        document.getElementById("option_negeri").required = false;
       }
     }
 
@@ -136,11 +173,27 @@
       var form = document.getElementById("myForm");
       var formData = new FormData(form);
 
+      // Check if either cawangan, option_kementerian, or option_negeri is selected
+      var cawanganValue = formData.get("cawangan");
+      var kementerianValue = formData.get("option_kementerian");
+      var negeriValue = formData.get("option_negeri");
+
+      if (!cawanganValue || (cawanganValue === "kementerian" && !kementerianValue) || (cawanganValue === "negeri" && !negeriValue)) {
+        alert("Sila pilih salah satu cawangan, kementerian, atau negeri.");
+        return;
+      }
+
+      // Proceed with form submission
       fetch(form.action, {
         method: "POST",
         body: formData
       })
-      .then(response => response.text())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
       .then(data => {
         alert(data); // Display success message
 
@@ -152,13 +205,13 @@
       })
       .catch(error => {
         console.error('Error:', error);
-        alert("Failed to submit form. Please try again later.");
+        alert("Gagal menghantar borang. Sila cuba lagi kemudian.");
       });
     }
 
     function createQueryString(formData) {
       return new URLSearchParams(formData).toString();
     }
-  </script>
+</script>
 </body>
 </html>
