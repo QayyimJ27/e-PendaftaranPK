@@ -56,7 +56,7 @@
 </head>
 <body>
   <div class="details-container">
-    <img src="logo_puspanita.png" alt="Image"> <!-- Replace with the correct image path -->
+    <img src="C:\Users\user\Desktop\QAYYIM\2024\JUN 2024\Sistem Pendaftaran PUSPANITA\Sistem e-Pendaftaran PUSPANITA qayyim\logo_puspanita.png"" alt="Image"> <!-- Replace with the correct image path -->
     <h2>Maklumat anda berjaya disimpan</h2>
     <ul class="details-list" id="detailsList">
       <!-- Details will be added dynamically here -->
@@ -79,19 +79,19 @@
 
       // Create list items for each detail
       var namaPenuhItem = document.createElement("li");
-      namaPenuhItem.textContent = "Nama Penuh: " + nama_penuh;
+      namaPenuhItem.innerHTML = "Nama Penuh: <strong>" + nama_penuh + "</strong>";
       detailsList.appendChild(namaPenuhItem);
 
       var noKadPengenalanItem = document.createElement("li");
-      noKadPengenalanItem.textContent = "Nombor Kad Pengenalan: " + no_kad_pengenalan;
+      noKadPengenalanItem.innerHTML = "Nombor Kad Pengenalan: <strong>" + no_kad_pengenalan + "</strong>";
       detailsList.appendChild(noKadPengenalanItem);
 
       var noTelefonItem = document.createElement("li");
-      noTelefonItem.textContent = "Nombor Telefon Bimbit: " + no_telefon;
+      noTelefonItem.innerHTML = "Nombor Telefon Bimbit: <strong>" + no_telefon + "</strong>";
       detailsList.appendChild(noTelefonItem);
 
       var cawanganItem = document.createElement("li");
-      cawanganItem.textContent = "Cawangan: " + (cawangan === "kementerian" ? "Kementerian - " + option_kementerian : "Negeri - " + option_negeri);
+      cawanganItem.innerHTML = "Cawangan: <strong>" + (cawangan === "kementerian" ? "Kementerian - " + option_kementerian : "Negeri - " + option_negeri) + "</strong>";
       detailsList.appendChild(cawanganItem);
 
       // Prevent the user from navigating back
