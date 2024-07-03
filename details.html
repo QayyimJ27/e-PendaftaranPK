@@ -53,9 +53,6 @@
     <ul class="details-list" id="detailsList">
       <!-- Details will be added dynamically here -->
     </ul>
-
-    
-    </div>
   </div>
 
   <script>
@@ -88,7 +85,17 @@
       var cawanganItem = document.createElement("li");
       cawanganItem.textContent = "Cawangan: " + (cawangan === "kementerian" ? "Kementerian - " + option_kementerian : "Negeri - " + option_negeri);
       detailsList.appendChild(cawanganItem);
+
+      // Prevent the user from navigating back
+      preventBackNavigation();
     });
+
+    function preventBackNavigation() {
+      history.pushState(null, document.title, location.href);
+      window.addEventListener('popstate', function(event) {
+        history.pushState(null, document.title, location.href);
+      });
+    }
   </script>
 </body>
 </html>
